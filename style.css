@@ -1,0 +1,104 @@
+/* Custom Soft Pastel Styles & Animations */
+
+:root {
+    --pastel-pink: #fdf2f8;
+    --deep-pink: #ec4899;
+    --soft-pink: #f472b6;
+}
+
+body {
+    background-color: var(--pastel-pink);
+    /* Prevent scrolling if buttons get huge */
+    overflow: hidden; 
+    touch-action: manipulation;
+}
+
+/* 1. Heartbeat Animation for the Yes Button */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#yesButton {
+    animation: heartbeat 1.5s infinite ease-in-out;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 2. Floating Hearts Animation */
+.heart {
+    position: absolute;
+    color: var(--soft-pink);
+    opacity: 0.6;
+    pointer-events: none;
+    animation: floatUp 4s linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* 3. The Vinyl Record (For the Reveal Page) */
+.vinyl-container {
+    perspective: 1000px;
+}
+
+.vinyl-disc {
+    width: 200px;
+    height: 200px;
+    background: #111;
+    border-radius: 50%;
+    border: 5px solid #222;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: spin 3s linear infinite;
+    animation-play-state: paused; /* Will be toggled by JS */
+}
+
+.vinyl-disc.playing {
+    animation-play-state: running;
+}
+
+.vinyl-label {
+    width: 80px;
+    height: 80px;
+    background: var(--soft-pink);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid white;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* 4. Polaroid Style */
+.polaroid {
+    background: white;
+    padding: 10px 10px 30px 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transform: rotate(var(--rotation));
+    transition: transform 0.3s ease;
+}
+
+.polaroid:hover {
+    transform: scale(1.05) rotate(0deg);
+    z-index: 20;
+}

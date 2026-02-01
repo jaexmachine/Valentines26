@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body class="bg-[#fdf2f8] min-h-screen flex items-center justify-center overflow-hidden font-['Quicksand']">
+
+    <div id="hearts-container" class="fixed inset-0 pointer-events-none"></div>
+
+    <div class="text-center z-10 p-6">
+        <div id="image-container" class="mb-6">
+            <img id="main-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwd3p6eXN6bm96eXN6bm96eXN6bm96eXN6bm96eXN6bm96ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute Bear" class="mx-auto w-48 h-48 drop-shadow-md">
+        </div>
+
+        <h1 id="question" class="text-3xl md:text-5xl font-bold text-[#ec4899] mb-8">
+            Do you want to be my <span class="italic font-['Sacramento'] text-5xl md:text-7xl">online</span> valentine?
+        </h1>
+
+        <div id="buttons" class="flex flex-wrap items-center justify-center gap-4">
+            <button id="yesButton" class="bg-[#f472b6] hover:bg-[#ec4899] text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-all duration-200">YES!</button>
+            <button id="noButton" class="bg-white text-[#f472b6] border-2 border-[#f472b6] font-bold py-3 px-8 rounded-full shadow-sm transition-all duration-200">No</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>

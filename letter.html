@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Valentine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .p1 { --rotation: -5deg; }
+        .p2 { --rotation: 3deg; }
+        .p3 { --rotation: -2deg; }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .letter-float { animation: float 4s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-[#fdf2f8] min-h-screen font-['Quicksand'] py-12 px-4 overflow-x-hidden">
+
+    <audio id="bg-music" loop>
+        <source src="audio/aperture.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="fixed top-5 right-5 z-50 flex flex-col items-center gap-2">
+        <div class="vinyl-container">
+            <div id="vinyl" class="vinyl-disc flex items-center justify-center">
+                <div class="vinyl-label flex items-center justify-center text-[8px] text-center font-bold text-white px-2">
+                    APERTURE <br> H.S.
+                </div>
+            </div>
+        </div>
+        <p id="music-status" class="text-[#ec4899] text-xs font-bold animate-pulse">Click anywhere to play music ✨</p>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-16">
+            <h1 class="text-6xl md:text-8xl font-['Sacramento'] text-[#ec4899] drop-shadow-sm">Yay! ❤️</h1>
+            <p class="text-[#f472b6] mt-4 font-bold tracking-widest">I KNEW YOU'D SAY YES</p>
+        </header>
+
+        <section class="bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-2xl shadow-xl border-2 border-pink-100 mb-20 letter-float">
+            <h2 class="text-3xl font-['Sacramento'] text-[#ec4899] mb-6 text-center text-4xl">Dear Valentine,</h2>
+            <div class="text-gray-700 leading-relaxed text-lg space-y-4">
+                <p>
+                    I am so happy you decided to be my online valentine :P 
+                    Even though we are far apart, or baka hindi me makauwi this upcoming valentine's day,
+                    I want you to know that Imma still be there for u :3
+                </p>
+                <p>
+                    You're my favorite person to talk to, my favorite person to inis, and definitely the only person I'd grow a button this big for. 
+                    Thank you for being you, u goofy ass.
+                </p>
+                <p class="text-right font-['Sacramento'] text-4xl text-[#ec4899]">Love, Jae</p>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center justify-center pb-20">
+            <div class="polaroid p1 mx-auto">
+                <div class="w-64 h-64 bg-gray-200 overflow-hidden mb-4">
+                    <img src="images/your-photo-1.jfif" alt="Our Picture" class="w-full h-full object-cover">
+                </div>
+                <p class="font-['Sacramento'] text-2xl text-center text-gray-600">First Date vibe</p>
+            </div>
+
+            <div class="polaroid p2 mx-auto">
+                <div class="w-64 h-64 bg-gray-200 overflow-hidden mb-4">
+                    <img src="images/your-photo-2.jfif" alt="Our Picture" class="w-full h-full object-cover">
+                </div>
+                <p class="font-['Sacramento'] text-2xl text-center text-gray-600">Favorite Moment</p>
+            </div>
+
+            <div class="polaroid p3 mx-auto">
+                <div class="w-64 h-64 bg-gray-200 overflow-hidden mb-4">
+                    <img src="images/your-photo-3.png" alt="Our Picture" class="w-full h-full object-cover">
+                </div>
+                <p class="font-['Sacramento'] text-2xl text-center text-gray-600">Forever To Go</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const music = document.getElementById('bg-music');
+        const vinyl = document.getElementById('vinyl');
+        const statusText = document.getElementById('music-status');
+
+        // Function to start music and animation
+        function startExperience() {
+            music.play().then(() => {
+                vinyl.classList.add('playing');
+                statusText.innerText = "Now Playing: Aperture";
+            }).catch(e => console.log("Playback failed:", e));
+        }
+
+        // Trigger on first click anywhere
+        document.body.addEventListener('click', () => {
+            startExperience();
+        }, { once: true });
+
+        // Backup: Try to play on load (may be blocked)
+        window.addEventListener('load', () => {
+            startExperience();
+        });
+    </script>
+</body>
+</html>
