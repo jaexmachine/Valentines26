@@ -10,7 +10,7 @@ const noTexts = [
     "No",
     "Weh?",
     "Pleaseeeeeeee",
-    "Think about the DingDong and Broofy",
+    "Think about DingDong and Jannah",
     "Are you really sure?",
     "You're breaking my heart :(",
     "I'm gonna cry...",
@@ -86,4 +86,5 @@ yesButton.addEventListener('click', () => {
     setTimeout(() => {
         window.location.href = "letter.html"; 
     }, 2000);
+
 });
